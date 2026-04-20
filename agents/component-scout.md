@@ -22,10 +22,13 @@ Plus: the user's need statement. If absent, pause and ask for it before continui
    gh api repos/<owner>/<repo>
    gh api repos/<owner>/<repo>/commits -f per_page=5
    gh api repos/<owner>/<repo>/releases -f per_page=3
+   gh api repos/<owner>/<repo>/issues -f state=open -f per_page=20 -f sort=created -f direction=asc
    gh api repos/<owner>/<repo>/readme --jq '.content' | base64 -d | head -150
    ```
 
    Don't issue redundant calls — stop at what you need to rank.
+
+   **Issues-tab audit (MANDATORY).** For every shortlisted repo, inspect the open issues before scoring Maintenance. Look for: oldest-open-issue age, unanswered bug reports, recurring bug themes, and issues closed without resolution (stale-bot / `not planned`). A clear pattern of unresolved bugs is a decisive downgrade even if stars and commit recency look healthy — call it out in the per-repo write-up and in the final recommendation.
 
 3. **Score each on the four axes** from `/evaluate-repo`:
    - Fit
@@ -73,6 +76,7 @@ Plus: the user's need statement. If absent, pause and ask for it before continui
 ## Ground rules
 
 - Never fabricate metrics. If you didn't fetch it, don't claim it.
+- The Issues-tab audit is not optional. If you skipped it for a candidate, mark Maintenance as "not checked" rather than guessing — and go back and check it.
 - If two repos are genuinely interchangeable, say so — don't manufacture a winner.
 - If all candidates are weak, say "none of these are a good fit" and suggest the user broaden the search or build in-house.
 - Respect GitHub rate limits: one search + a handful of repo calls is plenty; don't loop.

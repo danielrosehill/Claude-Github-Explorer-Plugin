@@ -20,12 +20,22 @@ Deeply evaluate one candidate repo against the user's project needs. Output a st
    gh api repos/<owner>/<repo>
    gh api repos/<owner>/<repo>/commits -f per_page=10
    gh api repos/<owner>/<repo>/releases -f per_page=5
-   gh api repos/<owner>/<repo>/issues -f state=open -f per_page=20
+   gh api repos/<owner>/<repo>/issues -f state=open -f per_page=30 -f sort=created -f direction=asc
+   gh api repos/<owner>/<repo>/issues -f state=closed -f per_page=20
    gh api repos/<owner>/<repo>/contributors -f per_page=10
    gh api repos/<owner>/<repo>/readme --jq '.content' | base64 -d
    ```
 
    Also check for: `LICENSE`, a `CHANGELOG.md`, CI status badges in the README.
+
+   **Issues-tab audit (MANDATORY — do not skip).** The Issues tab is the single best signal of whether a repo is quietly rotting. Always perform this check and surface findings in the report:
+
+   - Count open vs. closed issues and compute the ratio.
+   - Look at the **oldest open issues** (sorted ascending by creation date) — how old is the oldest unresolved bug? Anything open for 1+ years with no maintainer reply is a red flag.
+   - Filter for bug-like labels (`bug`, `defect`, `crash`, `regression`) and scan titles for recurring themes — same subsystem breaking repeatedly, the same symptom reported by multiple users over years, etc.
+   - Check whether maintainers **respond** to bug reports (even a triage comment counts) vs. letting them sit untouched. A graveyard of zero-comment bug reports is worse than a high issue count with active discussion.
+   - Look for issues closed as `not planned` / `stale` / auto-closed by bots without resolution — this is a pattern where bugs are "dealt with" administratively rather than fixed.
+   - Call out explicitly if there is **a pattern of bugs that are never dealt with**. This is a primary signal to steer the user away from the repo, even if other axes look healthy.
 
 3. **Evaluate against these axes** (mark each ✅ / ⚠️ / ❌ with a one-line justification):
 
@@ -39,6 +49,7 @@ Deeply evaluate one candidate repo against the user's project needs. Output a st
    - Last commit recency
    - Release cadence
    - Open-issue ratio and response times (skim a few recent issues)
+   - **Issues-tab health** — findings from the mandatory audit above. Flag as ❌ if there's a clear pattern of unresolved bugs, unanswered bug reports, or bugs closed without fixes.
    - Bus factor — is it one person?
 
    **Risk**
