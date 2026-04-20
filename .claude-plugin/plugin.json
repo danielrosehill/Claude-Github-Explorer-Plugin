@@ -1,0 +1,19 @@
+{
+  "name": "github-explorer",
+  "version": "1.0.0",
+  "description": "Claude Code plugin: semantic GitHub repo discovery for reusable components. Search, rank, overview, evaluate, and recommend open-source repos by having Claude parse gh API results — star count, recent activity, maintenance signals, license, language fit.",
+  "author": {
+    "name": "Daniel Rosehill",
+    "url": "https://github.com/danielrosehill"
+  },
+  "repository": "https://github.com/danielrosehill/Claude-Github-Explorer-Plugin",
+  "license": "MIT",
+  "keywords": [
+    "github",
+    "discovery",
+    "search",
+    "open-source",
+    "component-search",
+    "claude-code"
+  ]
+}
