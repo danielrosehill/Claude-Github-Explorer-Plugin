@@ -14,6 +14,8 @@ You're working on a project and want to ask: *"Is there an open-source repo we c
 - `/github-explorer:overview-repo` — quick overview of a single repo (what it is, who maintains it, is it alive).
 - `/github-explorer:evaluate-repo` — deep evaluation of one repo against your project's needs.
 - `/github-explorer:recommend-for-project` — reads the current project's stack/needs from `CLAUDE.md` or the user's brief and returns top recommendations.
+- `/github-explorer:create-resources-index` — bundle findings (from this session or a supplied list) into a curated resources-index repo. Categorised, sorted, and presented per a user-defined spec (show stars or not, ordering, badges, public/private).
+- `/github-explorer:ingest-to-index` — append new findings to an existing resources index. Dedupes, enriches, classifies per the index's existing scheme, and updates `README.md` + `repos.json` + any filtered views.
 
 ## Agents
 
