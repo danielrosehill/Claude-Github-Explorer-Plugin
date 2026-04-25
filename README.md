@@ -16,6 +16,8 @@ You're working on a project and want to ask: *"Is there an open-source repo we c
 - `/github-explorer:recommend-for-project` — reads the current project's stack/needs from `CLAUDE.md` or the user's brief and returns top recommendations.
 - `/github-explorer:create-resources-index` — bundle findings (from this session or a supplied list) into a curated resources-index repo. Categorised, sorted, and presented per a user-defined spec (show stars or not, ordering, badges, public/private).
 - `/github-explorer:ingest-to-index` — append new findings to an existing resources index. Dedupes, enriches, classifies per the index's existing scheme, and updates `README.md` + `repos.json` + any filtered views.
+- `/github-explorer:explore-to-public-index` — one-shot: search a topic, rank, confirm, and bundle the shortlist into a **public** resources-index repo (find-component + create-resources-index, visibility locked to public).
+- `/github-explorer:explore-to-private-index` — same bundled workflow, scaffolding a **private** resources-index repo for personal reference.
 
 ## Agents
 
