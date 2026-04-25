@@ -27,7 +27,6 @@ Ask for anything not already clear from the conversation. Batch questions — on
    - Findings from the current session (list them back for confirmation)
    - A pasted list of `owner/repo` slugs or GitHub URLs
    - A file path containing one slug/URL per line
-   - **GitHub topic URLs** (e.g. `https://github.com/topics/llm-agents`) — if supplied, capture them as **Sources Used** and render them in the README (see step 4). Three or fewer: render near the top under the intro. Four or more: render at the bottom in a `## Sources Used` section, so they don't obscure the recommendations.
 4. **Visibility** — public or private. **Always ask explicitly and echo the choice back before creating the remote.** Never assume. Once created, state the visibility clearly in the final report.
 5. **Location** — default `~/repos/github/my-repos/<Repo-Name>/`.
 6. **Presentation spec** (the defining input — do not skip):
@@ -103,10 +102,6 @@ Template (adapt sections per spec):
 **Last Updated:** {Month YYYY}
 **Entries:** {N}
 
-{If 1–3 GitHub topic URLs were supplied as sources, render here as:
-**Sources Used:** [topic-slug](url) · [topic-slug](url)
-If 4+ topic URLs, omit here and render the `## Sources Used` section at the bottom of the README instead.}
-
 ---
 
 ## Table of Contents
@@ -128,17 +123,6 @@ If 4+ topic URLs, omit here and render the `## Sources Used` section at the bott
 
 ### {Next Entry}
 ...
-
----
-
-{If 4+ GitHub topic URLs were supplied as sources, render the section below; otherwise omit.}
-
-## Sources Used
-
-This index was assembled by surveying the following GitHub topic pages:
-
-- [{topic-slug}](https://github.com/topics/{topic-slug})
-- ...
 
 ---
 
