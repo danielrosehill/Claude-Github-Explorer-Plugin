@@ -27,6 +27,9 @@ Ask for anything not already clear from the conversation. Batch questions — on
    - Findings from the current session (list them back for confirmation)
    - A pasted list of `owner/repo` slugs or GitHub URLs
    - A file path containing one slug/URL per line
+   - **None — scaffold an empty index** the user will populate later (this is the common default)
+
+   **Never research, search for, or propose candidate entries yourself unless the user explicitly asks you to.** If no source is provided, scaffold an empty index with the categories/sections in place and stop. Do not run `gh search`, web searches, or any discovery to "helpfully" pre-fill entries. The user populates the list; you build the container.
 4. **Visibility** — public or private. **Always ask explicitly and echo the choice back before creating the remote.** Never assume. Once created, state the visibility clearly in the final report.
 5. **Location** — default `~/repos/github/my-repos/<Repo-Name>/`.
 6. **Presentation spec** (the defining input — do not skip):
@@ -52,6 +55,10 @@ Default presentation (Daniel's standing preference — apply unless the user ove
 Echo the spec back as a compact summary before scaffolding so the user can course-correct in one turn.
 
 ## Procedure
+
+### 0. Empty-scaffold mode (skip steps 1–2 and 5–6 if no entries supplied)
+
+If the user supplied no entries, scaffold the repo with category headings only and an "_(no entries yet)_" placeholder under each. Skip metadata enrichment, classification, and `repos.json` generation entirely. Jump to step 3, then step 4 (with empty sections), then step 7. Do **not** invent placeholder repos or "starter" entries.
 
 ### 1. Enrich metadata for every entry
 
