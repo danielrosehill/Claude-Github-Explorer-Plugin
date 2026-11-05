@@ -45,3 +45,7 @@ claude plugins install github-explorer@danielrosehill
 ## License
 
 MIT
+
+## Folded in
+
+- `github-research`, retired 2026-11-05: skills document-findings, evaluate-candidates, find-alternatives, search-ai-tools, search-repos.
